@@ -6,123 +6,152 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grade Curricular</title>
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style2.css">
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <div class="navbar">
         <ul>
-            <a href="#"><img style="width: 250px;" src="../../GradeCurricular/img/logo.svg" alt=""></a>
-            <div class="entrar" onclick="toggleMenu()">
-                <div class="entraricon">
-                    <img style="height: 60px;" src="../img/icon.svg" alt="icone">
-                    <p id="usernamePlaceholder">Carregando...</p>
+            <a href="#"><img style="width: 250px;" src="../../GradeCurricular/img/logo.png" alt=""></a>
+            
+            <div class="entrar"><a href="../../perfil/perfil.php">
+                        <div class="entraricon">
+                            <img style="height: 40px;" src="../../GradeCurricular/img/icon.svg" alt="">
+                        </div></a>
                 </div>
-            </div>
         </ul>
     </div>
-    <div class="menu-1">
-        <nav id="menu">
-            <ul>
-                <li><a href="../../perfil/perfil.php">Perfil</a></li>
-                <li id="port-add"><a href="../Cadastrar Portfolio/cadastro.html">Adicionar Portfólio</a></li>
-                <li><a href="../../Encerrar Sessao/logout.php">Sair</a></li>
-            </ul>
-        </nav>
-        <script>
-            function toggleMenu() {
-                var menu = document.getElementById('menu');
-                menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-            }
 
-            // Chamada AJAX para obter o nome do usuário
-            $.ajax({
-                url: 'get_username.php',
-                method: 'GET',
-                success: function (response) {
-                    // Atualiza o conteúdo HTML com o nome do usuário
-                    $('#usernamePlaceholder').text(response);
-                },
-                error: function () {
-                    console.error('Erro ao obter o nome do usuário.');
-                }
-            });
-        </script>
+    <div>
+        <h1 id="titulo">Adicionar Trabalhos</h1>
+        <p id="subtitulo">Complete suas informações:</p>
+        <br>
     </div>
-    <div class="corpo">
-        <div class="conteudo">
-            <section class="conteudo-1">
-                <section class="borda-1">
-                    <h1>PORTFÓLIO ACADÊMICO</h1>
-                    <p>Uma ferramenta que armazena suas atividades, trabalhos incluindo textos, relatos, artigos e
-                        apostilas.</p>
-                </section>
 
-                <div id="topicos">
-                    <ul>
-                        <li>Simples de usar</li>
-                        <li>Ensino e desenvolvimento educacional</li>
-                        <li>Contribuições para sua faculdade e comunidade</li>
-                    </ul>
+    <!-- Início do formulário -->
+    <!-- Cabeçalho com título e subtítulo-->
+
+
+    <!-- Início do formulário -->
+    <form class="formulario" action="upload.php" method="post" enctype="multipart/form-data">
+
+        <fieldset class="grupo" id="a">
+            <!-- Campo do nome-->
+            <div class="campo">
+                <label for="titulo"><strong>Titulo</strong></label>
+                <input type="text" name="titulo" id="entradas" required>
+            </div>
+
+           
+        </fieldset>
+        <fieldset id="a">
+            <!-- Campo do email -->
+            <div class="campo">
+                <label for="periodo"><strong>Período</strong></label>
+                <select name="periodo" id="entradas">
+                    <option value="1">1º período</option>
+                    <option value="2">2º período</option>
+                    <option value="3">3º período</option>
+                    <option value="4">4º período</option>
+                    <option value="5">5º período</option>
+                    <option value="6">6º período</option>
+                    <option value="7">7º período</option>
+                    <option value="8">8º período</option>
+                    <option value="9">9º período</option>
+                    <option value="10">10º período</option>
+                </select>
+            </div>
+        </fieldset>
+        <form class="formulario">
+
+            <!-- Adicionei campos para Título, Data de Início/Final, Quantidade de Pessoas, Competências e Categoria -->
+            <fieldset class="grupo" id="a">
+                <div class="camposDate-quant">
+                    <div class="campo">
+                        <div class="opcoes-data">
+                            <label for="data_inicio"><strong>Data de Início:</strong></label>
+                            <input type="date" name="data_inicio" id="data_inicio" required>
+                            <label for="data_final"><strong>Data Final:</strong></label>
+                            <input type="date" name="data_final" id="data_final" required>
+                        </div>
+                    </div>
+                    <div class="campo">
+                        <div class="opcoes-quantidade">
+                            <label for="quantidade_pessoas"><strong> Participantes:</strong></label><br>
+                            <input type="radio" name="quantidade_pessoas" id="grupo" value="grupo" required>
+                            <label for="grupo">Grupo</label>
+                            <br>
+                            <input type="radio" name="quantidade_pessoas" id="individual" value="individual" required>
+                            <label for="individual">Individual</label>
+                        </div>
+                    </div>
                 </div>
-            </section>
-            <img src="../../home/src/Union.png" alt="">
-        </div>
 
-    </div>
-    <div class="conteudo-2">
-        <section class="conteudo-3">
-            <h1>O QUE É UM PORTIFÓLIO ACADÊMICO?</h1>
-            <section class="item-1">
-                <img src="../../home/src/wireframe (1) 1.png" alt="">
-                <p>Uma ferramenta versátil que ajuda a documentar, demonstrar e destacar
-                    as realizações e habilidades de um estudante ou
-                    profissional no contexto acadêmico.</p>
-            </section>
-            <section class="item-2">
-                <p>A principal finalidade de um portfólio acadêmico é fornecer uma visão holística
-                    das habilidades e realizações de um estudante, que pode ser útil para fins de
-                    candidatura a empregos, programas de pós-graduação, bolsas de estudo ou
-                    apenas para documentar o progresso acadêmico ao longo do tempo.</p>
-                <img src="../../home/src/bram-naus-n8Qb1ZAkK88-unsplash 1.png" alt="">
-            </section>
-        </section>
+                <div class="campo">
+                    <label for="competências"><strong>Competências</strong></label>
+                    <select name="competências" id="entradas">
+                        <option value="1">Pensamento crítico</option>
+                        <option value="2">Tomada de decisões complexas</option>
+                        <option value="3">Inteligência emocional e empatia</option>
+                        <option value="4">Criatividade</option>
+                        <option value="5">Colaboração e trabalho em equipe</option>
+                        <option value="6">Comunicação interpessoal</option>
+                        <option value="7">Adaptabilidade e flexibilidade</option>
+                        <option value="8">Liderança</option>
+                        <option value="9">Curiosidade e aprendizado contínuo</option>
+                        <option value="10">Orientação para a mudança</option>
+                    </select>
+                </div>
 
-    </div>
-    <div class="rodape">
-        <div class="rodape-1">
-            <h1 id="isolado">FÁCIL, SIMPLES E ORGANIZADO.</h1>
-            <div class="itens">
-                <section class="item-4">
-                    <img src="../../home/src/img1.png" alt="">
-                    <h1>FÁCIL</h1>
-                    <p>Intuitivo e <br> acessivél</p>
-                </section>
-                <section class="item-5">
-                    <img src="../../home/src/img2.png" alt="">
-                    <h1>SIMPLES</h1>
-                    <p> Documentação <br>
-                        e <br>
-                        exemplos de projetos práticos</p>
-                </section>
-                <section class="item-6">
-                    <img src="../../home/src/img3.png" alt="">
-                    <h1>ORGANIZADO</h1>
-                    <p>Organização sistemática do <br>
-                        desenvolvimento do <br>
-                        estudante</p>
-                </section>
-            </div>
-            <div class="footer">
-                <p>
-                    Você pode entrar em contato conosco através do nosso contato:<a href="">(98)3213-8011</a>
-                </p>
+                <div class="campo">
+                    <label for="categorias"><strong>Categorias</strong></label>
+                    <select name="categorias" id="entradas">
+                        <option value="1">Resumo</option>
+                        <option value="2">Resenha</option>
+                        <option value="3">Relatório</option>
+                        <option value="4">Artigo</option>
+                        <option value="5">TCC</option>
+                        <option value="6">Monografia</option>
+                        <option value="7">Dissertação</option>
+                        <option value="8">Tese</option>
+                        <option value="9">Projeto de Pesquisa</option>
+                        <option value="10">Seminário Temático</option>
+                        <option value="11">Atividade de Fixação</option>
+                        <option value="12">TDE</option>
+                    </select>
+                </div>
+                </div>
+
+            </fieldset>
+
+            <div class="campo">
+                <label for="anexo"><strong>Selecione seu arquivo:</strong></label>
+                <input type="file" name="arquivo">
             </div>
 
-        </div>
-    </div>
+            <!-- Caixa de texto -->
+            <div class="campo">
+                <br>
+                <label for="comentario"><strong>Comente Sobre: </strong></label>
+                <textarea rows="6" style="width: 26em" id="comentario" name="comentario"></textarea>
+            </div>
+
+
+            <!-- Removi o campo de feedback -->
+
+            <!-- Botoes -->
+            <div id="botao">
+                <div>
+                    <!-- botão Voltar -->
+                    <a class="button1" href="../Tela Inicial/TelaInicial.html">Cancelar</a>
+                </div>
+                <div>
+                    <!--botão Enviar -->
+                    <input class="button2" type="submit" name="Enviar">
+                </div>
+            </div>
+        </form>
 </body>
 
 </html>
